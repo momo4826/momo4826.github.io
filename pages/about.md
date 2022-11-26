@@ -5,7 +5,7 @@ permalink: /about
 ---
 I'm learning deep learning and doing relevant applications as freelancer in China.
 
-I hope one day there is no Totalitarianism, everyone can say what she/he want to say and be an independent person. This world can not walk to us if we sacrifice nothing.
+I hope one day there is no Totalitarianism, everyone can say what she/he want to say and be an independent person. This world can not walk to us if we sacrifice nothing. Let's be brave and fight for human rights!
 
 ---------
 ### Experience:
@@ -13,7 +13,7 @@ I hope one day there is no Totalitarianism, everyone can say what she/he want to
 * Worked as a Research Assistant in ML group in Shandong University in 2022
 * Worked as a Data Scientist in a startup company in 2021 and 2022
 * Got my Master degree in Computer Science from University of Amsterdam and Vrije Universiteit Amsterdam in 2021. 
-* 
+
 ### Skills:
 * Pytorch, Opencv
 * Python
