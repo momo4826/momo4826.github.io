@@ -1,0 +1,18 @@
+<div class="header-info">
+  <span class="header-info-name">{{ site.title }}</span>
+  <span class="header-info-desc">{{ site.description }}</span>
+</div>
+<nav class="header-nav">
+  <ul class="header-main-nav">
+    {% for item in site.data.menus %}
+    <li class="header-main-nav-item">
+      <a
+        href="{% if item.absoluteUrl != true %}{{ site.baseurl }}{% endif %}{{ item.url }}">
+        {{ item.title }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+<!--include 标签语序你包含另一个保存在 _includes 文件夹下文件的内容. 这对于在网站中需要重复使用的代码非常有用, 并且能够提高代码的可读性.-->
+<!--导航栏的代码有时会比较复杂, 所以把它移到 _includes 里是一个比较好的做法.-->

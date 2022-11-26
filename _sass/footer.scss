@@ -1,0 +1,22 @@
+/*
+ * footer.scss
+ * Author: Chen Su <i@ghosind.com>
+ */
+
+@charset "utf-8";
+
+.container-footer {
+  padding: 10px 0;
+  border-top: solid 1px #aaa;
+  overflow: hidden;
+}
+
+.footer-copyright {
+  overflow: hidden;
+}
+
+.footer-copyright-text {
+  display: block;
+  position: relative;
+  font-size: 14px;
+}

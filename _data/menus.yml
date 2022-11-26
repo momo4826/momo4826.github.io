@@ -1,0 +1,18 @@
+- title: "About"
+  url: "/about"
+
+- title: "Projects"
+  url: "/projects"
+
+- title: "Blog"
+  url: "/"
+  
+- title: "Categories"
+  url: "/categories"
+
+#Jekyll 支持从位于 _data 目录下的 YAML, JSON 和 CSV 文件中加载数据.
+#  数据文件是一种将内容与源代码分离的好方法, 它可以使网站更易于维护.
+#- 在 Ruby 的生态中, YAML 是一种通用的格式. 你将使用它来存储一系列导航项, 包括它们的名字和链接
+
+#Jekyll 会让你能够在变量 site.data.header 中拿到这些数据.
+#现在我们不必把每个链接都写到 _includes/header.html 中, 而是可以遍历数据文件:

@@ -1,0 +1,24 @@
+/*
+ * post-list.scss
+ * Author: Chen Su <i@ghosind.com>
+ */
+
+@charset "utf-8";
+
+.posts-list-item {
+  display: block;
+  position: relative;
+  margin: 7px 0;
+  overflow: hidden;
+  line-height: 24px;
+}
+
+.posts-list-item-name {
+  width: calc(100% - 100px);
+  font-weight: 300;
+}
+
+.list-pagination {
+  margin: 20px 0 10px 0;
+  text-align: center;
+}
