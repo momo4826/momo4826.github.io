@@ -1,6 +1,5 @@
-# ghosind.github.io
 
-The source of my [blog](https://momo4826.github.io/about).
+The source of my [blog](https://momo4826.github.io).
 
 The theme is from [ghosind](https://github.com/ghosind/ghosind)
 ## License
