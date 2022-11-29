@@ -3,7 +3,7 @@ layout: post
 title: Getting Started with Github, Sphinx and ReadtheDocs
 date: 2022-11-27
 categories: [website]
-tags: [personal website, github, sphinx, readthedocs]
+tags: [sphinx, personal website, github, readthedocs]
 excerpt: How to build a personal documentation project with Sphinx, Github and ReadtheDocs.
 ---
 
@@ -12,7 +12,7 @@ Deep Learning is a fast-growing field with too many models(papers), methods, alg
 ### What
 This is my [Deep Learning Notes](...) documentation, very welcome to visit and share your thoughts through Github fork of the project.
 ### How
-Actually, I met many errors(from powershell and ReadtheDocs platform) during building this website, this is the simplest way:
+Actually, I met many errors(from powershell and ReadtheDocs platform) during building this website. So here I want to show you the simplest way:
 1. Install Sphinx through pip.
    1. (better to do)create a new environment for your project using conda.
    ```shell
@@ -28,7 +28,7 @@ Actually, I met many errors(from powershell and ReadtheDocs platform) during bui
    ```shell
     sphinx-quickstart
     ```
-    You will be asked several questions to finish the initialization:
+   You will be asked several questions to finish the initialization:
     ```shell
    Separate source and build directories (y/n) [n]: y
    Project name: your_project_name
@@ -36,33 +36,21 @@ Actually, I met many errors(from powershell and ReadtheDocs platform) during bui
    Project version: 1.0.0
    Project language [en]:en
     ```
-3. Create a new page
-   1. fisrt, a new rst file
-Let's create a rst file called "hello.rst" under *source* directory.
- Write as follows (actually, this is the rst grammer you must know):
+3. Create a rst file called "hello.rst" under *source* directory. Write as follows (actually, this is the rst grammer you must know):
+      
     ```text
     This is a Title
     ===============
-    That has a paragraph about a main subject and is set when the '='
-    is at least the same length of the title itself.
     
     Subject Subtitle
     ----------------
-    Subtitles are set with '-' and are required to have the same length
-    of the subtitle itself, just like titles.
     
     Lists can be unnumbered like:
     
      * Item Foo
      * Item Bar
-    
-    Or automatically numbered:
-    
-     #. Item 1
-     #. Item 2
-    
-    Inline Markup
-    -------------
+          
+
     Words can have *emphasis in italics* or be **bold** and you can define
     code samples with back quotes, like when you talk about a command: ``sudo``
     gives you super user powers!
@@ -70,11 +58,14 @@ Let's create a rst file called "hello.rst" under *source* directory.
    
 4. Add a Table of Contents in the index page
    ```text
-    Contents:
-    .. toctree::
-       :maxdepth: 2
-       :numbered:
-    ```
+       Contents:
+
+   .. toctree::
+      :maxdepth: 2
+      :numbered:
+   
+      hello
+   ```
 5. Build the html files
     ```shell
     make html
@@ -85,7 +76,7 @@ Let's create a rst file called "hello.rst" under *source* directory.
    1. Create a new public repository on your Github
    2. Connect your local project with this repository
    ```shell
-    # in case you're already in the project root directory
+    # be sure you're already in the project root directory
    git init
    git branch -M main
    git clone git@github.com:yourgithubaccount/yourrepositoryname.git
@@ -99,5 +90,10 @@ Let's create a rst file called "hello.rst" under *source* directory.
    3. choose a repository from you github repository list
    4. click next, then build
 8. Dalaaa! Now you have your documentation that you can edit locally, push to Github and build on ReadtheDocs.
+
+
+
+
+
 
  
