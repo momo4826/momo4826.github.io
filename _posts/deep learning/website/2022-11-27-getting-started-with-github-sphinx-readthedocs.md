@@ -10,7 +10,7 @@ excerpt: How to build a personal documentation project with Sphinx, Github and R
 ### Why
 Deep Learning is a fast-growing field with too many models(papers), methods, algorithms and applications. It's easy to forget what you've learned or mix things up if you don't take notes. And documentation is a very good way to collect knowledge, organize notes and share thinking about deep learning. That's why I choose to build a documentation with Sphinx, Github and ReadtheDocs.
 ### What
-This is my [Deep Learning Notes](...) documentation, very welcome to visit and share your thoughts through Github fork of the project.
+This is my [Deep Learning Notes](https://deep-learning-notes-fr.readthedocs.io/en/latest/index.html) documentation, very welcome to visit and share your thoughts through Github fork of the project.
 ### How
 Actually, I met many errors(from powershell and ReadtheDocs platform) during building this website. So here I want to show you the simplest way:
 1. Install Sphinx through pip.
@@ -79,7 +79,7 @@ Actually, I met many errors(from powershell and ReadtheDocs platform) during bui
     # be sure you're already in the project root directory
    git init
    git branch -M main
-   git clone git@github.com:yourgithubaccount/yourrepositoryname.git
+   git remote add origin git@github.com:yourgithubaccount/yourrepositoryname.git
    git add .
    git commit -m "init"
    git push origin main

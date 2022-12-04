@@ -31,14 +31,14 @@ linkedin:
 stackoverflow:
 
 comments: false
-disqus: ghosind
+disqus: false #ghosind
 
 paginate: 25
 paginate_path: "/page:num/"
 
 permalink: /:year/:month/:day/:title
 
-google_analytics: UA-87927057-1
+google_analytics: #UA-87927057-1 # later to do:[GA4] Set up Analytics for a website and/or app
 
 sass:
   sass_dir: _sass

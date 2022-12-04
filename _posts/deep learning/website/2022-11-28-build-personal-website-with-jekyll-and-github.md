@@ -66,7 +66,7 @@ Jekyll is a static site generator written in Ruby, so the things we need to set 
       ```shell
       git init
       git branch -M main
-      git clone git@github.com:yourgithubaccount/yourrepositoryname.git
+      git remote add origin git@github.com:momo4826/deep_learning_notes_fr.git
       git add .
       git commit -m "init"
       git push origin main
