@@ -77,7 +77,35 @@ Check the files by `ls -l`, there will be two files in this directory now, `hell
     gdb --version
     ```
    If you're able to check their versions, you've installed compilers successfully.
-## Using GCC with MinGW in VS Code
+## Using GCC and GDB with MinGW in VS Code
 1. Click Terminal, then click Configure Default Build Tasks, choose gcc in the dropdown menu.
 2. In order to use `make` command in VS Code terminal, go to `mingw64\bin`, rename "mingw32-make.exe" as "make.exe". Otherwise, VS Code can't find it.
-
+3. To run your program like "hello" in terminal, execute `.\hello` (not `./hello`).
+4. To use debug, edit your launch.json.
+   ```json
+    // an example
+    {
+     "version": "0.2.0",
+     "configurations": [
+       {
+         "name": "C/C++ Runner: Debug Session",
+         "type": "cppdbg",
+         "request": "launch",
+         "args": [],
+         "stopAtEntry": false,
+         "externalConsole": true,
+         "cwd": "d:/c_workspace",
+         "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+         "MIMode": "gdb",
+         "miDebuggerPath": "gdb",
+         "setupCommands": [
+           {
+             "description": "Enable pretty-printing for gdb",
+             "text": "-enable-pretty-printing",
+             "ignoreFailures": true
+           }
+         ]
+       }
+     ]
+   }
+   ```
