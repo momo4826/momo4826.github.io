@@ -34,6 +34,8 @@ Thanks to ASCII, we've developed a mapping of characters like A, B, C, ... to nu
 `float` variable takes up 4 bytes(32 bits) of memory, while `double` variable takes up to 8 bytes(64 bits). So `double` is double precision comparing to `float`, which means it allows us to specify much more precise real numbers with additional 32 bits.
 ### bool (not build-in)
 `bool` is used for variables that will store a Boolean value: true or false. Actually `bool` is not a default data type in C. So if you want to use it, add `#include <stdbool.h>`, or in this course `#include <cs50.h>`.
+
+Note you can't directly print a bool variable as 'false' or 'true'.
 ### structs and typedefs
 Structures(structs) and defined types(typedefs) can afford great flexibility in creating data types you need.
 ### qualifiers
