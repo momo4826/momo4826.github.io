@@ -1,10 +1,10 @@
 ---
 layout: post
-title: HarvardX CS50x Lecture1 C Notes
+title: Basics about C
 date: 2022-12-05
 categories: [computer science]
 tags: [course, introduction to Computer Science]
-excerpt: This lecture is an introduction to C
+excerpt: This lecture by Harvard CS50X is an introduction to C.
 ---
 This lecture includes all basic knowledge about C -- data types, operators, conditional statements, loops and overflow.
 

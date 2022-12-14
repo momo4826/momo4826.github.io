@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HarvardX CS50x Lecture3 Algorithms Notes
+title: Basics about Algorithms
 date: 2022-12-09
 categories: [computer science]
 tags: [course, introduction to Computer Science]
