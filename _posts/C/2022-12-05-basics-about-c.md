@@ -2,7 +2,7 @@
 layout: post
 title: Basics about C
 date: 2022-12-05
-categories: [computer science]
+categories: [C]
 tags: [course, introduction to Computer Science]
 excerpt: This lecture by Harvard CS50X is an introduction to C.
 ---

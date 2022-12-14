@@ -2,9 +2,11 @@
 layout: post
 title: More about Pointers
 date: 2022-12-14
-categories: [computer science]
+categories: [C]
 tags: [pointers, course]
+excerpt:
 ---
+
 # Pointers to sophisticated types
 ## Pointers to Structs
 Pointers can be a part of structs. and we can create a pointer pointing to a struct variable.

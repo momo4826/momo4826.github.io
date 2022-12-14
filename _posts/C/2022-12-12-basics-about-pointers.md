@@ -2,7 +2,7 @@
 layout: post
 title: Basics about pointers
 date: 2022-12-12
-categories: [computer science]
+categories: [C]
 tags: [course, introduction to Computer Science]
 excerpt: This lecture focuses on pointers -- what it is, how to use it, how it works in hardware, pointer and arrays, pointers as function parameters, and file pointers.
 ---

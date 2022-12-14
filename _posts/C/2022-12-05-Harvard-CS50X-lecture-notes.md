@@ -2,9 +2,11 @@
 layout: post
 title: Harvard CS50X lecture notes
 date: 2022-12-05
-categories: [computer science]
+categories: [C]
 tags: [CS50X, introduction to Computer Science]
+excerpt:
 ---
+
 > Harvard CS50X teaches students how to think algorithmically and solve problems efficiently. Topics include abstraction, algorithms, data structures, encapsulation, resource management, security, software engineering, and web programming. Languages include C, Python, and SQL plus HTML, CSS, and JavaScript. 
 
 If you are totally new to Computer Science, it's a very good start. Lectures are interesting and clear, problem sets are challenging but definitely not frustrating.

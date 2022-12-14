@@ -2,7 +2,7 @@
 layout: post
 title: Developing C programs on Mac OS and Windows
 date: 2022-12-02
-categories: [computer science]
+categories: [C]
 tags: [C, editor, compiler]
 excerpt: Setup C environment on your computer
 ---

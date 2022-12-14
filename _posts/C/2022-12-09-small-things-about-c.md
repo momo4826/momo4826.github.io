@@ -2,8 +2,8 @@
 layout: post
 title: Small but important things about C
 date: 2022-12-09
-categories: [computer science]
-tags: [c language]
+categories: [C]
+tags: [C]
 excerpt: There are so many small but import things about C that we maybe don't know but will bring "disaster" during program.
 ---
 

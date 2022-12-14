@@ -2,7 +2,7 @@
 layout: post
 title: Git errors and solutions
 date: 2022-12-02
-categories: [computer science]
+categories: [Git]
 tags: [Git]
 excerpt: Record of git errors I met and relevant solutions.
 ---

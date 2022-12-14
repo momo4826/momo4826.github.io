@@ -2,7 +2,7 @@
 layout: post
 title: Basics about Array
 date: 2022-12-07
-categories: [computer science]
+categories: [C]
 tags: [course, introduction to Computer Science]
 excerpt: This lecture covers compilation process, how to debug, data structure--array, data type string, user-defined functions and command line arguments.
 ---

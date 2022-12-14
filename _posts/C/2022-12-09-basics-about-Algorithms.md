@@ -2,7 +2,7 @@
 layout: post
 title: Basics about Algorithms
 date: 2022-12-09
-categories: [computer science]
+categories: [C]
 tags: [course, introduction to Computer Science]
 excerpt: In this lecture, we’ll focus on algorithms that solve problems with arrays.
 ---
