@@ -15,10 +15,10 @@ If you've already learned some knowledge about Computer Science, this course pro
 
 The solutions to problem sets and labs are provided [here](https://github.com/momo4826/HarvardX-CS50x). The detailed notes are as follows(you can also find them in this [repository](https://github.com/momo4826/HarvardX-CS50x)):
 
-1. Lecture 1: [an introduction to C]()
-2. Lecture 2: [Array]()
-3. Lecture 3: [Algorithms]()
-4. Lecture 4: [Memory]()
+1. Lecture 1: [an introduction to C](https://momo4826.github.io/2022/12/05/basics-about-c)
+2. Lecture 2: [Array](https://momo4826.github.io/2022/12/07/basics-about-array)
+3. Lecture 3: [Algorithms](https://momo4826.github.io/2022/12/09/basics-about-Algorithms)
+4. Lecture 4: [Memory](https://momo4826.github.io/2022/12/12/basics-about-pointers)
 5. Lecture 5: [Data Structures]()
 6. Lecture 6: [Python]()
 7. Lecture 7: [SQL]()

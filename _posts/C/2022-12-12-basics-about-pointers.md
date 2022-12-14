@@ -6,7 +6,7 @@ categories: [C]
 tags: [course, introduction to Computer Science]
 excerpt: This lecture focuses on pointers -- what it is, how to use it, how it works in hardware, pointer and arrays, pointers as function parameters, and file pointers.
 ---
-Pointers is an important and difficult part of C programming. This lecture covering nearly all aspects of points is good start to learn, but not deep enough. And the problem sets and lab for this lecture is all about file pointers. Therefore, I recommend Coursera course "Pointers, Arrays and Recursion" by Duke University as supplementary material. The notes of this course can be found [here](), which only covers knowledge that is not mentioned here. 
+Pointers is an important and difficult part of C programming. This lecture covering nearly all aspects of points is good start to learn, but not deep enough. And the problem sets and lab for this lecture is all about file pointers. Therefore, I recommend Coursera course "Pointers, Arrays and Recursion" by Duke University as supplementary material. The notes can be found [here(pointers)](https://momo4826.github.io/2022/12/12/basics-about-pointers), which only covers knowledge that is not mentioned here. 
 
 # Hexadecimal
 Hexadecimal is a numbering system with base 16, where there are 16 digits:
