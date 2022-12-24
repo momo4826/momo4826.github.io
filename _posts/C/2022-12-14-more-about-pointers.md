@@ -6,7 +6,7 @@ categories: [C]
 tags: [pointers, course]
 excerpt:
 ---
-
+Pointers is an important and difficult part of C programming. If you're new to this concept, you can first read ["Basics About Pointers"](https://momo4826.github.io/2022/12/12/basics-about-pointers) before reading this article for better understanding.
 # Pointers to sophisticated types
 ## Pointers to Structs
 Pointers can be a part of structs. and we can create a pointer pointing to a struct variable.
