@@ -133,6 +133,7 @@ Relative description (family trees):
 
 
 ### Tree ADT:
+### Constructor and selector
 ```python
 def tree(label, branches=[]):
     """Construct a tree with the given label value and a list of branches."""
@@ -176,7 +177,44 @@ def print_tree(t, indent=0):
     for b in branches(t):
         print_tree(b, indent + 1)
 ```
+### Class
+```python
+class Tree:
+    """
+    >>> t = Tree(3, [Tree(2, [Tree(5)]), Tree(4)])
+    >>> t.label
+    3
+    >>> t.branches[0].label
+    2
+    >>> t.branches[1].is_leaf()
+    True
+    """
 
+    def __init__(self, label, branches=[]):
+        for b in branches:
+            assert isinstance(b, Tree)
+        self.label = label
+        self.branches = list(branches)
+
+    def is_leaf(self):
+        return not self.branches
+
+    def __repr__(self):
+        if self.branches:
+            branch_str = ', ' + repr(self.branches)
+        else:
+            branch_str = ''
+        return 'Tree({0}{1})'.format(self.label, branch_str)
+
+    def __str__(self):
+        def print_tree(t, indent=0):
+            tree_str = '  ' * indent + str(t.label) + "\n"
+            for b in t.branches:
+                tree_str += print_tree(b, indent + 1)
+            return tree_str
+        return print_tree(self).rstrip()
+
+```
 # Objects
 What is Object?
 > Objects represent information. They consist of data and behavior, bundled together to create abstractions. Objects can represent things, but also properties, interactions, & processes
@@ -599,6 +637,122 @@ b'\x00\x00\x00\x00'
 ```
 
 # Linked Lists
+Implement:
+```python
+class Link:
+    """A linked list.
+
+    >>> s = Link(1)
+    >>> s.first
+    1
+    >>> s.rest is Link.empty
+    True
+    >>> s = Link(2, Link(3, Link(4)))
+    >>> s.first = 5
+    >>> s.rest.first = 6
+    >>> s.rest.rest = Link.empty
+    >>> s                                    # Displays the contents of repr(s)
+    Link(5, Link(6))
+    >>> s.rest = Link(7, Link(Link(8, Link(9))))
+    >>> s
+    Link(5, Link(7, Link(Link(8, Link(9)))))
+    >>> print(s)                             # Prints str(s)
+    <5 7 <8 9>>
+    """
+    empty = ()
+
+    def __init__(self, first, rest=empty):
+        assert rest is Link.empty or isinstance(rest, Link)
+        self.first = first
+        self.rest = rest
+
+    def __repr__(self):
+        if self.rest is not Link.empty:
+            rest_repr = ', ' + repr(self.rest)
+        else:
+            rest_repr = ''
+        return 'Link(' + repr(self.first) + rest_repr + ')'
+
+    def __str__(self):
+        string = '<'
+        while self.rest is not Link.empty:
+            string += str(self.first) + ' '
+            self = self.rest
+        return string + str(self.first) + '>'
+```
+
+# Efficiency
+Consider the Fibonacci problem, if we use recursive function to solve it, let's see how many recursion it will call to get `fib(n)`.
+```python
+def count(f):
+    """Count how many times the recursive function runs"""
+    def counted(n):
+        counted.call_count += 1
+        return f(n)
+    counted.call_count = 0
+    return counted
+
+@count
+def fib(n):
+    if n == 0 or n == 1:
+        return n
+    else:
+        return fib(n-2) + fib(n-1)
+>>> fib(5)
+5
+>>> fib.call_count
+15
+```
+
+## Memorization
+We can use cache to store the result during recursion, so we can get the result from cache directly if it's already calculated instead of repeat same calculation multiple times.
+```python
+def memo(f):
+    cache = {}
+    def memorized(n):
+        if n not in cache:
+            cache[n] = f(n)
+        return cache[n]
+    return memorized
+
+@count
+@memo
+def fib(n):
+    if n == 0 or n == 1:
+        return n
+    else:
+        return fib(n-2) + fib(n-1)
+>>> fib(5)
+5
+>>> fib.call_count
+9
+```
+## Time complexity
+### Linear complexity vs Logarithmic complexity
+How to distinguish between Logarithmic time complexity and Linear time complexity?
+
+Ask yourself, what would happen to the problem size if we double the input size?
+* Linear time: Doubling the input doubles the time
+* Logarithmic time: Doubling the input increases the time by one step
+
+### Quadratic complexity vs Exponential complexity
+Functions that process all pairs of values in a sequence of length n take quadratic time(`for i in range(n): for j in range(m): ...`).
+
+Tree-recursive functions can take exponential time, like recursive Fibonacci.
+
+<!--
+# Decomposition
+Large programs are always so complex that we can't think about all of its parts at once. So decomposition of the big problem to small parts(modular design) is necessary.
+
+A design principle: 
+* Isolate different parts of a program that address different concerns
+* A modular component can be developed and tested independently
+-->
+
+
+
+
+
 
 
 
