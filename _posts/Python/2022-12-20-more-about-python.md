@@ -737,17 +737,27 @@ Ask yourself, what would happen to the problem size if we double the input size?
 
 ### Quadratic complexity vs Exponential complexity
 Functions that process all pairs of values in a sequence of length n take quadratic time(`for i in range(n): for j in range(m): ...`).
-
+### Time complexity of recursive functions
 Tree-recursive functions can take exponential time, like recursive Fibonacci.
 
-<!--
+
+<!---
 # Decomposition
 Large programs are always so complex that we can't think about all of its parts at once. So decomposition of the big problem to small parts(modular design) is necessary.
-
 A design principle: 
 * Isolate different parts of a program that address different concerns
-* A modular component can be developed and tested independently
--->
+* A modular component can be developed and tested independently --->
+
+# Exceptions
+Python exceptions are raised with a raise statement
+`raise <expression>`.
+`<expression>` must evaluate to a subclass of BaseException or an instance of one. `Exception`s are constructed like any other object. E.g., `TypeError('Bad argument!')`
+
+* `TypeError` -- A function was passed the wrong number/type of argument
+* `NameError` -- A name wasn't found
+* `KeyError` -- A key wasn't found in a dictionary
+* `RecursionError` -- Too many recursive calls
+
 
 
 
@@ -760,3 +770,4 @@ A design principle:
 # References
 1. [CS61A](https://cs61a.org/)
 2. [Special method names](https://docs.python.org/3/reference/datamodel.html#special-method-names)
+3. [Programming languages](https://cs61a.org/assets/slides/29-Calculator_1pp.pdf)

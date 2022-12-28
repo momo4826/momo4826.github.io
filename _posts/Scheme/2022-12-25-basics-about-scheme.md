@@ -108,7 +108,30 @@ scm> (cond
 ...> )
 -1
 ```
+#### begin
+The begin special form combines multiple expressions into one expression
 
+```shell
+(cond 
+  ((> x 0) (begin (print 1) (+ 2 3))) 
+  (else 3)
+)
+```
+#### let
+The let special form binds symbols to values temporarily; just for one expression
+
+```shell
+(define (duplicate lst) 
+    (let (
+            (tmp (map (lambda (x) (list x x)) lst))
+        )
+        (cond 
+            ((null? tmp) nil)
+            (else (reduce append tmp))
+        )
+    )
+)
+```
 #### and, or
 ```shell
 scm> (define x 15)
@@ -118,14 +141,122 @@ scm> (and (> x 10) (< x 20))
 scm> (or (< x 10) (> x 20))
 #f
 ```
+# Types
+## Types of value
+### undefined
+There is also an undefined value that can be returned by some builtin procedures. This value behaves similarly to None in Python. If an expression entered into the REPL evaluates to undefined, it is not printed, just like Python. But the result of `(not undefined)` is `#f`, this is different from python.
+
+## Type checking
+Type checking functions all ends with question mark `?`.
+
+Besides these built-in type checkers, it is a common practice in Scheme to name a function with a question mark at the end if the function returns a boolean value indicating whether or not a condition is satisfied. For instance, ascending? is a function that essentially asks "Is the argument in ascending order?", null? is a function that asks "Is the argument nil?", even? asks "Is the argument even?", etc.
+
+
+### null?
+`(null? <arg>)`
+
+Returns true if arg is nil (the empty list); false otherwise.
+
+### atom?
+`(atom? <arg>)`
+
+Returns true if arg is a boolean, number, symbol, string, or nil; false otherwise.
 
 
 
+# Pair and List Manipulation
+```shell
+(define (duplicate lst) 
+    (let (
+            (tmp (map (lambda (x) (list x x)) lst))
+        )
+        (cond 
+            ((null? tmp) nil)
+            (else (reduce append tmp))
+        )
+    )
+)
+```
+## Basics
+### car
+`(car <pair>)`
+
+Returns the car of pair. Errors if pair is not a pair.
+
+### cdr
+`(cdr <pair>)`
+
+Returns the cdr of pair. Errors if pair is not a pair.
+
+```shell
+# return the rest excepting the first two elements
+(define (cddr s) (cdr (cdr s)))
+
+# return the second element
+(define (cadr s) 
+        (if (null? (cdr s)) undefined (car (cdr s))))
+        
+# return the third element
+(define (caddr s) 
+        (if (< (length s) 3) nil (cadr (cdr s)))
+)
+
+```
+### cons
+`(cons <first> <rest>)`
+
+Returns a new pair with first as the car and rest as the cdr.
+
+### list
+`(list <item> ...)`
+Returns a list with the items in order as its elements.
+
+```shell
+scm> (cons 1 (cons 2 nil))
+(1 2)
+scm> (cons 1 '(list 2 3))
+(1 list 2 3)
+scm> (cons 1 (list (cons 3 nil) 4 5))
+(1 (3) 4 5)
+```
+
+## Useful built-in functions
+### append
+`(append [lst] ...)`
+
+Returns the result of appending the items of all lsts in order into a single list. Returns nil if no lsts.
+
+```shell
+scm> (append '(1 2 3) '(4 5 6))
+(1 2 3 4 5 6)
+```
+### reduce
+`(reduce <combiner> <lst>)`
+
+Returns the result of sequentially combining each element in lst using combiner (a two-argument procedure). reduce works from left-to-right, with the existing combined value passed as the first argument and the new value as the second argument. lst must contain at least one item.
+### map
+`(map <proc> <lst>)`
+
+Returns a list constructed by calling proc (a one-argument procedure) on each item in lst.
+
+### length
+`(length <arg>)`
+
+Returns the length of arg. If arg is not a list, this will cause an error.
 
 
 
+## Mutation
+### set-car!
+`(set-car! <pair> <value>)`
 
-
-
-
-
+Sets the car of pair to value. pair must be a pair.
+```shell
+scm> (define x (list 1 2 3))
+x
+scm> x
+(1 2 3)
+scm> (set-car! x 10)
+scm> x
+(10 2 3)
+```
