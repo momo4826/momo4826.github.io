@@ -103,9 +103,10 @@ Two main types of Boolean expressions: logical operators and relational operator
 
 ### [C Operator Precedence and Associativity](http://www.eecs.northwestern.edu/~wkliao/op-prec.htm)
 
-<p align = 'center'>
+<figure align="center">
     <img src = "/assets/images/computer%20science/operator_precedence_associativity.png">
-</p>
+    <figcaption>figure from <a href="https://www.coursera.org/learn/programming-fundamentals/supplement/9LmqH/structs">Coursera course</a> by Duke University</figcaption>
+</figure>
 
 ## Conditional Statements
 ### if else

@@ -5,42 +5,14 @@ date: 2023-01-01
 categories: [Python]
 tags: [Python, CS61A, Abstraction]
 ---
-<p align="center">
-    <img src="assets/images/
-/img/UCB.png" alt="logo" height="150"/>
-</p>
+<figure align="center">
+    <img src = "/assets/images/computer%20science/UCB.png">
+</figure>
 <p align="center">
     <a href="https://cs61a.org/">official website</a> |
     <a href="http://composingprograms.com/">free online textbook</a> 
 </p>
 
-Contents
-1. [Intro](#1-Intro)
-2. [Mapping from Lectures to Assignments](#2-Lectures->Labs-and-homeworks)
-3. [Mapping from Questions to Lectures and Assignments](#3-Take-away-from-this-course)
-4. [Projects](#4-Projects)
-
-<h2 id='intro'>1. Intro</h2>
-Here you can find notes, lab and homework solutions, and projects for UC Berkeley CS61A Fall 2022.
-
-<h2 id='lectures'>2. Lectures->Labs and homeworks</h2>
-1. Functions, Control [lab01](week2/lab01) [hw01](week1/hw01)
-2. Higher-Order Functions, Lambda Expressions [lab02](week3/lab02) [hw02](week2/hw02)
-3. Mid-term review [lab03](week3/lab03)
-4. Recursion, Tree Recursion [lab04](week5/lab04) [hw03](week4/hw03)
-5. Python Lists, Trees, Data Abstraction [lab05](week6/lab05) [hw04](week6/hw04)
-6. Mutability, Iterators, Generators [lab06](week7/lab06) [hw05](week7/hw05)
-7. Objects and object-oriented programming [lab07](week8/lab07) [hw06](week8/hw06)
-8. Representation
-9. Composition, Data examples (Linked lists, mutable trees) [lab08](week8/lab08) [lab09](week9/lab09)
-10. Efficiency [lab09](week9/lab09)
-11. Scheme [hw07](week10/hw07) [lab10](week11/lab10) [hw08](week11/hw08)
-12. Calculator(example), Interpreters [lab11](week12/lab11)
-13. Tail calls
-14. Macros [lab12](week13/lab12) [hw09](week12/hw09)
-15. SQL, Table, Aggregation, Databases [hw10](week13/hw10) [lab13](week15/lab13)
-16. Final examples, Conclusion
-<h2 id='take-away'>3. Take-away from this course</h2>
 
 | Questions(the contents start with * are extensions from lectures) | Answers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Relevant lectures                    | Relevant assignments                                | Relevant projects |
 |-------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|-----------------------------------------------------|----------|
@@ -101,9 +73,5 @@ Here you can find notes, lab and homework solutions, and projects for UC Berkele
 | what are macros? | A macro is an operation performed on the source code of a program before evaluation.  Macros exist in many languages, but are easiest to define correctly in a language like Lisp.  | Macros                               | lab12, hw09 | |
 | Evaluation procedure of a macro call expression | • Evaluate the operator sub-expression, which evaluates to a macro<br>• Call the macro procedure on the operand expressions without evaluating them first<br>• Evaluate the expression returned from the macro procedure| Macros                               | lab12, hw09 | |    
 
-<h2 id = "projects">4. Projects</h2>
-
-1. [Game Hog](./week2/hog)
-2. [Cats](./week5/cats)
-3. [Ants](./week8/ants)
-4. [Scheme(Interpreter)](./week11/scheme)
+# Reference:
+1. [CS61A repository](https://github.com/momo4826/CS61A)
