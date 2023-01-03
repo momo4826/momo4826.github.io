@@ -6,7 +6,7 @@ categories: [Python]
 tags: [Python, CS61A, Abstraction]
 ---
 <figure align="center">
-    <img src = "/assets/images/computer%20science/UCB.png">
+    <img src = "/assets/images/computer%20science/UCB.png" height="15">
 </figure>
 <p align="center">
     <a href="https://cs61a.org/">official website</a> |
