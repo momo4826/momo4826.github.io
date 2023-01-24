@@ -186,7 +186,7 @@ s1.insertFront(x);
    * so when we pass a variable as an argument to a method, we need to check if the **static type** of the argument is compatible to the parameter type
    * so when we call a method through an instance, we need to find if there is such a method in the static type class of the instance(or its superclass). If there is one, then we can further check if there is an overriden version of this method in the dynamic type class.
 3. Overridden **non-static** methods are selected at **run time** based on **dynamic type**. **Everything else is based on static type**, including overloaded methods. 
-4. You can do casting `(SpecificType) variableWithGerneralStaticType`, it may not raise any compile error, but it definitely will raise a runtime error, because it's illegal to say "a variable with general static type is-a specific type", in other words, a memory box  cannot hold its parent type.
+4. You can do casting `(SpecificType) variableWithGerneralStaticType`, it may not raise any compile error, but it definitely will raise a **runtime error**, because it's illegal to say "a variable with general static type is-a specific type", in other words, a memory box  cannot hold its parent type.
 
 ### Overriding VS overloading
 If a “subclass” has a method with the **exact same signature** as in the  “superclass”, we say the subclass overrides the method. (An overriding method can also return a subtype of the type returned by the overridden method. This subtype is called a covariant return type.)
@@ -218,6 +218,7 @@ First of all, it's a bad programming habit to write hiding variables or methods 
     <figcaption>figure from <a href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html">Overriding and Hiding Methods</a> 
     </figcaption>
 </figure>
+
 ### Static Type vs. Dynamic Type
 Every variable in Java has a “**compile-time type**”, a.k.a. “**static type**”.
 This is the type specified at declaration. Never changes!
@@ -465,8 +466,49 @@ public class Java8HoFDemo {
 }
 
 ```
+# this, ==, equals
+## this
+You can use `this` to access your own instance variables or methods.
+* Unlike Python, where `self` is mandatory, **using `this` in Java is not mandatory**.
+* If there's ever a name conflict where a local variable(methods) has the same name as an instance variable(methods), you must use `this` if you want to access the instance variable(methods).
 
+Example:
+```java
+public Dog(int size){
+  this.size = size;
+}
+```
 
+## == VS equals
+== and .equals() behave differently
+* == compares the bits. For references, == means “referencing the same object.”
+* To test equality in the sense we usually mean it, use `.equals` for class
+  * but it requires writing a (overriden) `.equals` method for your classes, because the default implementation(in superclass `Object`) uses `==` (probably not what you want)
+
+Example:
+```java
+@Override
+public boolean equals(Object o){
+  if (o instanceof Arrayset oas){
+    if (this.size != oas.size){
+      return false;
+    }
+    for (T x: this){
+      if (!oas.contain(x)){
+        return false;
+      }
+    }
+  }
+  return false;
+}
+```
+# Keyword: instanceof
+In the code just above, we see how to use `instanceof`.
+What does it do?
+1. checks to see if oas's dynamic type is `Arrayset` or its subtypes.
+2. cast `o` to a variable of static type `Arrayset` called `oas`.
+
+It will work correctly even if `o` is null.
 # References
 1. [CS61B](https://sp21.datastructur.es/)
 2. [Overriding and Hiding Methods](https://docs.oracle.com/javase/tutorial/java/IandI/override.html)
