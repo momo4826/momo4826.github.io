@@ -16,3 +16,7 @@ excerpt: Record of git errors I met and relevant solutions.
     
     The reason why we suddenly got this error might be 22 port is blocked by firewall, so try to connect 443 port of github.
     Execute `ssh -T -p 443 git@ssh.github.com` in Git Bash, then everything is fine for me!
+
+
+# Resources
+1. Oh, shit! Git[https://ohshitgit.com/]
