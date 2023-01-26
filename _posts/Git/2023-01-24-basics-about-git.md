@@ -170,7 +170,7 @@ taste: sour
 ```
 
 ### Reference
-All snapshots(commits) can be identified by their SHA-1 hashes. But this code is inconvenient to remember, so we can use references(such as `master`), which are **pointers to commits**. You can check all references by `find ./git/refs`, and you'll get(`side` is a sub-branch):
+All snapshots(commits) can be identified by their SHA-1 hashes. But this code is inconvenient to remember, so we can use references(such as `master`), which are **pointers to commits**. You can check all references by `find .git/refs`, and you'll get(`side` is a sub-branch):
 ```commandline
 .git/refs
 .git/refs/heads
@@ -199,7 +199,9 @@ def load_reference(name_or_id):
 Unlike objects, which are immutable, **references are mutable** (can be updated to point to a new commit). 
 Everytime you commit changes in the master branch, `master` reference will be changed. That's because `master` is a reference which always points to the latest commit in the main branch.
 
-If you want to know "where we currently are", there is a special reference called "**HEAD**". **The HEAD ref is special because it actually points to another ref. It is a pointer to the currently active branch**. (watch out special senario of "detached branch"). 
+If you want to know "where we currently are" and "what the repo currently looks like", there is a special reference called "**HEAD**". **The HEAD ref is special because it actually points to another ref. It is a pointer to the currently active branch**. 
+   * If you `check out` a branch, `HEAD` symbolically refers to that branch, indicating that the branch name should be updated after the next commit operation. 
+   * If you `check out` a specific commit, `HEAD` refers to that commit only. This is referred to as **a detached HEAD**, and occurs, for example, if you check out a **tag** name.
 
 You aren’t encouraged to directly edit the reference files; instead, Git provides the safer command `git update-ref` to do this, for example, if you want to update a reference:
 ```commandline
@@ -209,12 +211,19 @@ git update-ref refs/heads/master 1a410efbd13591db07496601ebc7a059dd55cfe9
 ### Repositories
 > Finally, we can define what (roughly) is a Git repository: it is the **data objects and references**.
 > 
+> **A repository is a collection of commits**, each of which is an archive of what the project’s working tree looked like at a past date, whether on your machine or someone else’s.
+> 
 > On disk, all Git stores are objects and references: that’s all there is to Git’s data model. 
 > 
 > **All git commands map to some manipulation of the commit DAG by adding objects and adding/updating references**.
 
+<figure align="center">
+    <img src = "/assets/images/computer%20science/git_9.png">
+    <figcaption>figure from <a href="https://jwiegley.github.io/git-from-the-bottom-up//">Git from the bottom up</a> 
+    </figcaption>
+</figure>
 # Staging area
-Git allows you to specify which modifications now in your directory you want to include to the next snapshot when creating a commit through a mechanism called "staging area".
+Git allows you to specify which modifications now in your directory you want to include to the next snapshot when creating a commit through a mechanism called "staging area"(some also call it as "**the index**").
 
 For example, you modified both `a.txt` and `b.txt` and added them to stage area by `git add .`. Now both modifications are in the stage area like:
 ```commandline
@@ -244,11 +253,30 @@ Changes to be committed:
 
 # Git command-line interface
 ## Basics
-| command lines                                  | descriptions                                                                                                                                                                                             | examples                          |
-|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
-| `git help <command>` or `git <command> --help` | The former will automatically open a mannual webpage for you. The latter will show command usages in the interface. Note that the latter is internally converted into the latter, so they are identical. | `git help log` or `git log --help` |
-| `git init` | creates a new git repo, with data stored in the `.git` directory | `git init myProject`|
-| `git status` | tells you what’s going on | 
+| command lines                                  | descriptions                                                                                                                                                                                         | examples                                                                                                                                                                                                                                                                                                                   |
+|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `git help <command>` or `git <command> --help` | The former will automatically open a mannual webpage for you. The latter will show command usages in the interface. Note that the latter is internally converted into the latter, so they are identical. | `git help log` or `git log --help`                                                                                                                                                                                                                                                                                         |
+| `git init`                                     | creates a new git repo, with data stored in the `.git` directory                                                                                                                                     | `git init myProject`                                                                                                                                                                                                                                                                                                       |
+| `git status`                                   | tells you what’s going on                                                                                                                                                                            |                                                                                                                                                                                                                                                                                                                            |
+| `git add <filename>`                           | adds files to staging area                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                            |
+| `git commit`                                   | creates a new commit                                                                                                                                                                                 | `git commit -m "init"` or `git init -m "only modify a.txt`. <br> How to write commit file: [link](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) <br>`git commit --amend -c HEAD` means you want to modify the commit message file for commit HEAD points to.                                      |
+| `git log`                                      | shows a flattened log of history                                                                                                                                                                     | `git log a.txt` shows history of file a.txt. <br> `git log --all --graph --decorate` visualizes history as a DAG.                                                                                                                                                                                                          |
+| `git diff`                          | git diff <filename>  : show changes you made relative to the staging area; <br>git diff <revision> <filename>`: shows differences in a file between snapshots                                        | If there is nothing in the  staging area now, `git diff b.txt` will get nothing. <br> `git diff 64f879533ecded5c2312637752dcf7eb92ade234 b.txt` will show you the differences in file b.txt between the current snapshot and the snapshot you're interested in(with sha-1 code "64f879533ecded5c2312637752dcf7eb92ade234". |
+| `git checkout <revision>` | updates HEAD and current branch | `git checkout anotherBranch` or `git checkout oldCommit`(this will be a detached HEAD)                                                                                                                                                                                                                                     |
+
+
+
+# Exercises from Missing Semester Course
+1. Clone the missing-semester repository from Github. 
+   1. Explore the version history by visualizing it as a graph. ===> `git log --all --graph --decorate`
+   2. Who was the last person to modify README.md? (Hint: use `git log` with an argument).  ===> `git log README.md`
+   3. What was the commit message associated with the last modification to the `collections:` line of `_config.yml`? (Hint: use `git blame` and `git show`). ===> `git blame _config.yml`, get SHA-1 code `a88b4eac` for `collections:` line, then `git show a88b4eac`
+2. One common mistake when learning Git is to commit large files that should not be managed by Git or adding sensitive information. Try adding a file to a repository, making some commits and then deleting that file from history (you may want to look at [this](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)).
+3. Clone some repository from GitHub, and modify one of its existing files. What happens when you do git stash? What do you see when running git log --all --oneline? Run git stash pop to undo what you did with git stash. In what scenario might this be useful?
+4. Like many command line tools, Git provides a configuration file (or dotfile) called ~/.gitconfig. Create an alias in ~/.gitconfig so that when you run git graph, you get the output of git log --all --graph --decorate --oneline. Information about git aliases can be found here.
+5. You can define global ignore patterns in ~/.gitignore_global after running git config --global core.excludesfile ~/.gitignore_global. Do this, and set up your global gitignore file to ignore OS-specific or editor-specific temporary files, like .DS_Store.
+6. Fork the [repository for the class website](https://github.com/missing-semester/missing-semester), find a typo or some other improvement you can make, and submit a pull request on GitHub (you may want to look at [this](https://github.com/firstcontributions/first-contributions)).
+
 
 
 
@@ -257,7 +285,8 @@ Changes to be committed:
 1. [Missing Semester course](https://missing.csail.mit.edu/2020/version-control/)
 2. [CS61B](https://sp21.datastructur.es/materials/lab/lab4/lab4)
 3. [Git for Computer Scientists](https://eagain.net/articles/git-for-computer-scientists/)
-
+4. [Git from the botton-up](https://jwiegley.github.io/git-from-the-bottom-up/)
+5. [ivan-kim missing semester solutions](https://ivan-kim.github.io/MIT-missing-semester/Lecture6/)
 
 
 
