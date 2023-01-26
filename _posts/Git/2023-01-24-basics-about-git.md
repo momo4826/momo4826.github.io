@@ -19,7 +19,7 @@ So what is version control system?
 * a tag is both a node in the DAG and a post-it note (of yet another color). A tag points to a commit, and includes an optional message and a GPG signature.
 
 <figure align="center">
-    <img src = "/assets/images/computer%20science/git_1.png">
+    <img src = "/assets/images/computer%20science/git_1.png" height="300">
     <figcaption>figure from <a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> 
     </figcaption>
 </figure>
@@ -58,7 +58,7 @@ Some situations you probably will meet during work:
 1. you `clone`d a remote repository with one commit in it.
 
 <figure align="center">
-    <img src = "/assets/images/computer%20science/git_2.png">
+    <img src = "/assets/images/computer%20science/git_2.png" height="300">
     <figcaption>figure from <a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> 
     </figcaption>
 </figure>
@@ -66,7 +66,7 @@ Some situations you probably will meet during work:
 2. you `fetch`ed the remote and received one new commit from the remote, but have not merged it yet.
 
 <figure align="center">
-    <img src = "/assets/images/computer%20science/git_3.png">
+    <img src = "/assets/images/computer%20science/git_3.png" height="300">
     <figcaption>figure from <a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> 
     </figcaption>
 </figure>
@@ -74,7 +74,7 @@ Some situations you probably will meet during work:
 3. The situation after `git merge remotes/MYSERVER/master`. **As the merge was a `fast forward` (that is, we had no new commits in our local branch), the only thing that happened was moving our post-it note and changing the files in our working directory respectively**.
 
 <figure align="center">
-    <img src = "/assets/images/computer%20science/git_4.png">
+    <img src = "/assets/images/computer%20science/git_4.png" height="300">
     <figcaption>figure from <a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> 
     </figcaption>
 </figure>
@@ -82,7 +82,7 @@ Some situations you probably will meet during work:
 4. One local `git commit` and a `git fetch` later. We have both a new local commit and a new remote commit. 
 
 <figure align="center">
-    <img src = "/assets/images/computer%20science/git_5.png">
+    <img src = "/assets/images/computer%20science/git_5.png" height="300">
     <figcaption>figure from <a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> 
     </figcaption>
 </figure>
@@ -90,7 +90,7 @@ Some situations you probably will meet during work:
 5. Results of `git merge remotes/MYSERVER/master`. **Because we had new local commits, this wasn't a `fast forward`, but an actual new commit node was created in the DAG. Note how it has two parent commits**.
 
 <figure align="center">
-    <img src = "/assets/images/computer%20science/git_6.png">
+    <img src = "/assets/images/computer%20science/git_6.png" height="300">
     <figcaption>figure from <a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> 
     </figcaption>
 </figure>
@@ -100,14 +100,14 @@ Some situations you probably will meet during work:
    * **Don't rebase branches that others have created new commits on top of**. It is possible to recover from that, it's not hard, but the extra work needed can be frustrating.
 
 <figure align="center">
-    <img src = "/assets/images/computer%20science/git_7.png">
+    <img src = "/assets/images/computer%20science/git_7.png" height="300">
     <figcaption>figure from <a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> 
     </figcaption>
 </figure>
 
 7. The situation after garbage collecting (or just ignoring the unreachable commit), and creating a new commit on top of your rebased branch.
 <figure align="center">
-    <img src = "/assets/images/computer%20science/git_8.png">
+    <img src = "/assets/images/computer%20science/git_8.png" height="300">
     <figcaption>figure from <a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> 
     </figcaption>
 </figure>
@@ -218,7 +218,7 @@ git update-ref refs/heads/master 1a410efbd13591db07496601ebc7a059dd55cfe9
 > **All git commands map to some manipulation of the commit DAG by adding objects and adding/updating references**.
 
 <figure align="center">
-    <img src = "/assets/images/computer%20science/git_9.png">
+    <img src = "/assets/images/computer%20science/git_9.png" height="300">
     <figcaption>figure from <a href="https://jwiegley.github.io/git-from-the-bottom-up//">Git from the bottom up</a> 
     </figcaption>
 </figure>
